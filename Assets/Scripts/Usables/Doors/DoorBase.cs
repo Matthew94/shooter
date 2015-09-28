@@ -4,18 +4,11 @@ using System.Collections;
 
 public class DoorBase : UseableObject
 {
-    private enum DoorState
-    {
-        opening,
-        closing,
-        open,
-        closed
-    }
-    private DoorState state;
-    private Vector3 closed;
-    private Vector3 open;
+    protected DoorState state;
+    protected Vector3 closed;
+    protected Vector3 open;
     [SerializeField]
-    private float openTime;
+    protected float openTime = 1;
 
     void Start()
     {
@@ -28,17 +21,17 @@ public class DoorBase : UseableObject
         state = DoorState.closed;
     }
 
-    void Open()
+    protected void Open()
     {
         if (state != DoorState.closed) { return; }
         state = DoorState.opening;
-        StartCoroutine(Lerp.move(transform, closed, open, openTime, () => 
+        StartCoroutine(Lerp.move(transform, closed, open, openTime, () =>
         {
             state = DoorState.open;
         }));
     }
 
-    void Close()
+    protected void Close()
     {
         if (state != DoorState.open) { return; }
         state = DoorState.closing;
