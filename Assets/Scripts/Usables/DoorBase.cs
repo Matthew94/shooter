@@ -6,9 +6,10 @@ public class DoorBase : UseableObject
 {
     private enum DoorState
     {
-        stationary,
         opening,
-        closing
+        closing,
+        open,
+        closed
     }
     private DoorState state;
     private Vector3 closed;
