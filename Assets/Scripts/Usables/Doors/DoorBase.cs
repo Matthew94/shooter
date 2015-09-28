@@ -8,7 +8,7 @@ public class DoorBase : UseableObject
     protected Vector3 closed;
     protected Vector3 open;
     [SerializeField]
-    protected float openTime = 1;
+    protected float timeToOpen = 1;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class DoorBase : UseableObject
     {
         if (state != DoorState.closed) { return; }
         state = DoorState.opening;
-        StartCoroutine(Lerp.move(transform, closed, open, openTime, () =>
+        StartCoroutine(Lerp.move(transform, closed, open, timeToOpen, () =>
         {
             state = DoorState.open;
         }));
@@ -35,7 +35,7 @@ public class DoorBase : UseableObject
     {
         if (state != DoorState.open) { return; }
         state = DoorState.closing;
-        StartCoroutine(Lerp.move(transform, open, closed, openTime, () =>
+        StartCoroutine(Lerp.move(transform, open, closed, timeToOpen, () =>
         {
             state = DoorState.closed;
         }));
