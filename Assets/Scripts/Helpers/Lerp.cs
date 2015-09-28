@@ -4,12 +4,12 @@ using System.Collections;
 
 public static class Lerp
 {
-    public static IEnumerator 
-    move(Transform objectToMove, Vector3 startPos, 
+    public static IEnumerator
+    move(Transform objectToMove, Vector3 startPos,
          Vector3 endPos, float timeToMove, Action callback)
     {
         var startTime = Time.time;
-        
+
         // Starting with trash values
         var currentDuration = 0f;
         var amountComplete = 0f;
@@ -19,7 +19,7 @@ public static class Lerp
             currentDuration = Time.time - startTime;
             amountComplete = currentDuration / timeToMove;
 
-            objectToMove.position = 
+            objectToMove.position =
                 Vector3.Lerp(startPos, endPos, amountComplete);
 
             yield return null;

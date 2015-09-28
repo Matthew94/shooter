@@ -19,13 +19,33 @@ public class DoorBase : UseableObject
 
     void Start()
     {
+        closed = transform.position;
+        var size = GetComponent<Renderer>().bounds.size;
 
+        open = closed;
+        open.x += size.x;
+
+        state = DoorState.closed;
     }
 
-    public override void Activate()
+    void Open()
     {
-
+        if (state != DoorState.closed) { return; }
+        state = DoorState.opening;
+        StartCoroutine(Lerp.move(transform, closed, open, openTime, () => 
+        {
+            state = DoorState.open;
+        }));
     }
 
+    void Close()
+    {
+        if (state != DoorState.open) { return; }
+        state = DoorState.closing;
+        StartCoroutine(Lerp.move(transform, open, closed, openTime, () =>
+        {
+            state = DoorState.closed;
+        }));
+    }
 
 }
