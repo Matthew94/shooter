@@ -15,8 +15,8 @@ public class DoorBase : UseableObject
         closed = transform.position;
         var size = GetComponent<Renderer>().bounds.size;
 
-        open = closed;
-        open.x += size.x;
+        open = transform.position + 
+               transform.TransformDirection(Vector3.right * size.x);
 
         state = DoorState.closed;
     }
