@@ -4,7 +4,7 @@ using System.Collections;
 public class AutoClosingDoor : DoorBase
 {
     [SerializeField]
-    private float openDelay;
+    protected float openDelay;
 
     public override void Activate()
     {
