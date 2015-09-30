@@ -55,7 +55,11 @@ public class MovingTarget : MonoBehaviour
         }
         
         isMoving = false;
-        StartCoroutine(backAndForth());
+
+        if (metresToMove != 0)
+        {
+            StartCoroutine(backAndForth());
+        }
     }
 
     private IEnumerator backAndForth()
