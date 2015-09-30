@@ -19,7 +19,12 @@ public class RayShooter : MonoBehaviour
     [SerializeField]
     private AudioClip gunshot;
 
+    // For incrementing the score
+    [SerializeField]
+    private Text scoreGUI;
+
     public int damage = 1;
+    private int score = 0;
 
     void Start()
     {
@@ -96,6 +101,7 @@ public class RayShooter : MonoBehaviour
                 if (target.ReactToHit(damage))
                 {
                     soundSource.PlayOneShot(target.deathClip);
+                    incrementScore(target);
                 }
 
                 numHits += 1;
@@ -111,5 +117,11 @@ public class RayShooter : MonoBehaviour
         {
             StartCoroutine(gunshotEffect());
         }
+    }
+
+    private void incrementScore(ShootableTarget target)
+    {
+        score += target.Points;
+        scoreGUI.text = "Score: " + score;
     }
 }

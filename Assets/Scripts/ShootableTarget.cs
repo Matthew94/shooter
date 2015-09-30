@@ -22,8 +22,21 @@ public class ShootableTarget : MonoBehaviour
             }
         }
     }
+    [SerializeField]
+    private int pointsValue;
+
+    public int Points 
+    { 
+        get { return pointsValue; } 
+    }
+
 
     public AudioClip deathClip;
+
+    void start()
+    {
+        pointsValue = 10;
+    }
 
     /// <summary>
     /// Makes target take damage.
