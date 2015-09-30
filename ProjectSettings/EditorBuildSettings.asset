@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/playground.unity
   - enabled: 1
     path: Assets/Scenes/levelTest.unity
+  - enabled: 1
+    path: Assets/Scenes/levelOne.unity
