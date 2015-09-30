@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6.0f;
     public float sprintMultiplier = 2f;
     public float gravity = 9.81f;
+    public bool teleporting;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        teleporting = false;
     }
 
     void Update()

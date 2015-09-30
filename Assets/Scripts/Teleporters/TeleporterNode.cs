@@ -7,9 +7,19 @@ public class TeleporterNode : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (teleporterExit)
+        var player = other.GetComponent<PlayerMovement>();
+
+        if (teleporterExit && player)
         {
-            other.transform.position = teleporterExit.transform.position;
+            if (!player.teleporting)
+            {
+                player.teleporting = true;
+                other.transform.position = teleporterExit.transform.position;
+            }
+            else
+            {
+                player.teleporting = false;
+            }
         }
     }
 
