@@ -67,23 +67,41 @@ public class MovingTarget : MonoBehaviour
         }
         
         isMoving = false;
+        StartCoroutine(backAndForth());
     }
 
-    void Update()
+    private IEnumerator backAndForth()
     {
-        if (!isMoving)
         {
-            isMoving = true;
-            StartCoroutine(
-                Lerp.move(transform, 
-                          startPosition, 
-                          endPosition,
-                          timeToLerp,
-                          () =>
-                          {
-                              isMoving = false;
-                              swapPositions();
-                          }));
+            // Doing a small random delay so all
+            // of the items aren't moving in sync
+            // which looks bad
+            var rand_gen = new System.Random();
+
+            // Four invocations means a total delay of i seconds possible
+            var delay = 0.0;
+            for (var i = 0; i < 10; i++)
+            {
+                delay += rand_gen.NextDouble();
+            }
+            Debug.Log(delay.ToString());
+            yield return new WaitForSeconds((float)delay);
+        }
+
+        while (true)
+        {
+            if (!isMoving)
+            {
+                isMoving = true;
+                StartCoroutine(
+                    Lerp.move(transform, startPosition, endPosition,
+                              timeToLerp, () =>
+                              {
+                                  isMoving = false;
+                                  swapPositions();
+                              }));
+            }
+            yield return null;
         }
     }
 }
