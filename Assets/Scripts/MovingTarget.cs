@@ -15,11 +15,11 @@ public class MovingTarget : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 endPosition;
     private bool isMoving;
+    [SerializeField]
+    private int metresToMove;
 
     public float timeToLerp = 1f;
-    // Distance of how many widths/heights to move
-    public float distanceMultiplier;
-
+    
     private void swapPositions()
     {
         var temp = startPosition;
@@ -36,33 +36,21 @@ public class MovingTarget : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        var size = GetComponent<Renderer>().bounds.size;
-        float length = 0;
-        switch (movementDirection)
-        {
-            case MovementDirection.Horizontal:
-                length = size.x;
-                break;
-            case MovementDirection.Vertical:
-                length = size.y;
-                break;
-            case MovementDirection.Backwards:
-                length = size.z;
-                break;
-        }
-
-        var distanceToMove = length * distanceMultiplier;
         endPosition = transform.position;
+
         switch (movementDirection)
         {
             case MovementDirection.Horizontal:
-                endPosition.x += distanceToMove;
+                endPosition += 
+                    transform.TransformVector(Vector3.right * metresToMove);
                 break;
             case MovementDirection.Vertical:
-                endPosition.y += distanceToMove;
+                endPosition +=
+                    transform.TransformVector(Vector3.up * metresToMove);
                 break;
             case MovementDirection.Backwards:
-                endPosition.z += distanceToMove;
+                endPosition +=
+                    transform.TransformVector(Vector3.back * metresToMove);
                 break;
         }
         
