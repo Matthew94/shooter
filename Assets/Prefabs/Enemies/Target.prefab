@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDirection: 0
+  metresToMove: 4
   timeToLerp: 1
-  distanceMultiplier: 0
 --- !u!114 &11444542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +205,10 @@ Prefab:
       propertyPath: deathClip
       value: 
       objectReference: {fileID: 8300000, guid: 236404771934528408ab0cfdd555dfd9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: metresToMove
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 152596}
