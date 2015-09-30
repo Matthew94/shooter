@@ -9,14 +9,15 @@ public class DoorBase : UseableObject
     protected Vector3 open;
     [SerializeField]
     protected float timeToOpen = 1;
+    [SerializeField]
+    protected int metresToMove = 1;
 
     void Start()
     {
         closed = transform.position;
-        var size = GetComponent<Renderer>().bounds.size;
 
         open = transform.position + 
-               transform.TransformDirection(Vector3.right * size.x);
+               transform.TransformDirection(Vector3.right * metresToMove);
 
         state = DoorState.closed;
     }
