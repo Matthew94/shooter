@@ -72,7 +72,7 @@ public class MovingTarget : MonoBehaviour
 
             // Four invocations means a total delay of i seconds possible
             var delay = 0.0;
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < 5; i++)
             {
                 delay += rand_gen.NextDouble();
             }

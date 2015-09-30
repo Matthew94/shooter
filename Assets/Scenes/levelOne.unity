@@ -1476,7 +1476,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22422128, guid: 1e061ef084dd2a9438bec9be5cec44ff, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22422128, guid: 1e061ef084dd2a9438bec9be5cec44ff, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1521,6 +1521,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e061ef084dd2a9438bec9be5cec44ff, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &609920496 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11445832, guid: 1e061ef084dd2a9438bec9be5cec44ff,
+    type: 2}
+  m_PrefabInternal: {fileID: 609920495}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!4 &645895256 stripped
 Transform:
   m_PrefabParentObject: {fileID: 437678, guid: 3a422ab38e89a344fbb806bd916c587d, type: 2}
@@ -3794,6 +3800,10 @@ Prefab:
       propertyPath: speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 11453970, guid: 2c776f1cee2ba4a4d848aa2a1bd19681, type: 2}
+      propertyPath: scoreGUI
+      value: 
+      objectReference: {fileID: 609920496}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c776f1cee2ba4a4d848aa2a1bd19681, type: 2}
   m_IsPrefabParent: 0
