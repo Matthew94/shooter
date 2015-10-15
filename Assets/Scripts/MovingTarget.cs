@@ -76,7 +76,6 @@ public class MovingTarget : MonoBehaviour
             {
                 delay += rand_gen.NextDouble();
             }
-            Debug.Log(delay.ToString());
             yield return new WaitForSeconds((float)delay);
         }
 
